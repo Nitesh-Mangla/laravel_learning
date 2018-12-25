@@ -1,12 +1,16 @@
 <?php
 
 namespace App;
+
 use Session;
 use DB;
+
+
 use Illuminate\Database\Eloquent\Model;
 
 class userModel extends Model
 {
+
 
     public function insertData($info = array()){
         $status='';
@@ -24,4 +28,7 @@ class userModel extends Model
             }
 
     }
+
+    public $created_at = false;
+    public $update_at = false;
 }

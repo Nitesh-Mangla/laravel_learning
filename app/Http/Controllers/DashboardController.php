@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use srcgpConfig;
 use Illuminate\Http\Request;
 use App\userModel;
+
+
+use Illuminate\Http\Request;
+
 
 class DashboardController extends Controller
 {
@@ -11,6 +16,7 @@ class DashboardController extends Controller
         public function dashboard(){
             echo "authentication successfully done";
         }
+
 
         public function insert_user_info(Request $request){
                 $userData = new userModel();
@@ -23,4 +29,5 @@ class DashboardController extends Controller
 
                 echo json_encode($status);
         }
+
 }

@@ -6,6 +6,7 @@
 
 @endpush
 @push('customer_js')
+
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
@@ -38,6 +39,13 @@
 @section('contents')
 
 
+
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+
+@endpush
+@section('contents')
+
     <section class="sign-in">
         <div class="container">
             <div class="signin-content">
@@ -48,10 +56,14 @@
                 <div class="signin-form">
                     <h2 class="form-title">Sign up</h2>
 
+
                     @foreach($errors->all() as $error)
                         {{$error['msg']}}
                     @endforeach
                     {!! Form::open(["route" => "user_login" ,"method" => "post","class" => "register-form"])  !!}
+
+                    {!! Form::open(["route" => "login" ,"method" => "post","class" => "register-form"])  !!}
+
                     <div class="form-group">
                     {!! Form::label('') !!}
                     {!! Form::text('username',null,['id' => 'your_name' ,'placeholder' => 'your_Name']) !!}
@@ -68,7 +80,11 @@
                         {!! Form::label('remember me','',['class' => 'label-agree-term']) !!}
                     </div>
                     <div class="form-group form-button">
+
                         {!! Form::submit ('signin',['id' => 'signin' ,'class' => 'form-submit','name' => 'submit'])!!}
+
+                        {!! Form::submit ('signin',['id' => 'signin' ,'class' => 'form-submit'])!!}
+
                     </div>
                     {!! Form::close() !!}
                     <div class="social-login">
@@ -79,6 +95,14 @@
 
                         </ul>
                     </div>
+
+                            <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                            <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                            <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                        </ul>
+                    </div>
+
+
                 </div>
             </div>
         </div>
