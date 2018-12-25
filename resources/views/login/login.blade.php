@@ -9,7 +9,7 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <script>
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
@@ -20,9 +20,10 @@
                 url: "{{route('userinfo')}}",
                 success: function (data) {
                     if(data == 200){
-                       window.location.href = "{{route('user_account')}}";
+                        window.location.href = "{{route('user_login')}}";
+                       {{--window.location.href = "{{route('user_account')}}";--}}
                     }else{
-                        window.location.href = "{{route('login')}}";
+                        window.location.href = "{{route('user_login')}}";
                     }
                 },
                 error:function(error){
@@ -50,7 +51,7 @@
                     @foreach($errors->all() as $error)
                         {{$error['msg']}}
                     @endforeach
-                    {!! Form::open(["route" => "login" ,"method" => "post","class" => "register-form"])  !!}
+                    {!! Form::open(["route" => "user_login" ,"method" => "post","class" => "register-form"])  !!}
                     <div class="form-group">
                     {!! Form::label('') !!}
                     {!! Form::text('username',null,['id' => 'your_name' ,'placeholder' => 'your_Name']) !!}

@@ -7,8 +7,8 @@ Route::group(['middleware' => 'web'],function(){
 
     Route::group(['middleware' => 'AuthLogin'],function(){
 
-        Route::post('Dashboard',[
-            "as" => "login",
+        Route::post('/dashboard',[
+            "as" => "user_login",
             "uses" => "DashboardController@dashboard"
         ]);
 
