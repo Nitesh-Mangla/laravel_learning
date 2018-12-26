@@ -8,31 +8,23 @@ Route::group(['middleware' => 'web'],function(){
 
     Route::group(['middleware' => 'AuthLogin'],function(){
 
-        Route::post('/dashboard',[
+        Route::match(['GET','POST'],'/dashboard',[
             "as" => "user_login",
             "uses" => "DashboardController@dashboard"
         ]);
 
         Route::match(['post','get'],'/userinfo','DashboardController@insert_user_info')->name('userinfo');
 
-        Route::view('/Dashboard','Dashboard/dashboard')->name('user_account');
+        Route::view('Dashboard','Dashboard/dashboard')->name('user_account');
+
+        Route::get('/logout','DashboardController@logout')->name('logout');
     });
 
 });
 
 
 
-Route::get('/',function(){
-   return view('login.login');
-});
 
-Route::group(['middleware' => 'AuthLogin'],function(){
-
-    Route::post('Dashboard',[
-        "as" => "login",
-        "uses" => "DashboardController@dashboard"
-    ]);
-});
 
 
 

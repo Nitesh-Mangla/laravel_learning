@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use srcgpConfig;
+
 use Illuminate\Http\Request;
 use App\userModel;
-
-
-use Illuminate\Http\Request;
-
-
+use Session;
 class DashboardController extends Controller
 {
 
         public function dashboard(){
             echo "authentication successfully done";
+             //return redirect('/');
         }
-
 
         public function insert_user_info(Request $request){
                 $userData = new userModel();
@@ -28,6 +24,11 @@ class DashboardController extends Controller
                $status = $userData->insertData($data);
 
                 echo json_encode($status);
+        }
+
+        public function logout(){
+            Session::flush();   
+            return redirect('/');
         }
 
 }

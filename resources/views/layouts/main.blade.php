@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+     <meta name="google-signin-client_id" content="1072331773183-812iipv6fmv4lv6nm3mff609uk095u42.apps.googleusercontent.com">
     <title>Dashboard</title>
 
     @stack('custome_css');
